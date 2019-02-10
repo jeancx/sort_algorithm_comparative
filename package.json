@@ -1,0 +1,8 @@
+{
+  "name": "sort_algorithm_comparative",
+  "description": "Comparação do pior caso dos Algoritimos: Bubble Sort, Insertion Sort, Quick Sort\n\n",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.15.0"
+  }
+}
