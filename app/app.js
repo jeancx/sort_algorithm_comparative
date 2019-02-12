@@ -28,7 +28,7 @@ class App extends React.Component {
       let total = 0;
 
       const genListAndCalcTime = (size) => {
-        const inicio = new Date(), generatedList = genInvertedIntArray(size);
+        const inicio = new Date(), generatedList = genRandIntArray(size);
         let tempo = new Date() - inicio;
 
         this.setState((state) => {
