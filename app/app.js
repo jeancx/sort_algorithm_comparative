@@ -18,10 +18,12 @@ class App extends React.Component {
 
     handleRadioChange(event) {
         event.persist();
-        this.setState({ genType: event.target.value });
+        this.setState({genType: event.target.value});
     }
 
     initializeList() {
+        this.setState((state) => ({...state, lists: [], gerandoListas: 0, ordenandoListas: 0}));
+
         return new Promise((resolve) => {
             const genRandIntArray = (size) => (
                 Array.from({length: size}, () => Math.floor(Math.random() * size))
@@ -181,11 +183,11 @@ class App extends React.Component {
 
                         <div className='row'>
                             <div className='col-md-12'>
-                                <h4>Ordenando listas: ({this.state.ordenandoListas}%)</h4>
+                                <h4>Ordenando listas: ({Math.round(this.state.ordenandoListas)}%)</h4>
                             </div>
                             <div className='col-md-12'>
                                 <div className="light-grey">
-                                    <div className="blue-bar" style={{width: `${this.state.ordenandoListas}%`}}/>
+                                    <div className="blue-bar" style={{width: `${Math.round(this.state.ordenandoListas)}%`}}/>
                                 </div>
                             </div>
                         </div>
