@@ -28,6 +28,10 @@ input {
     margin-right: 5px;
 }
 
+button {
+    margin-left: 20px;
+}
+
 .light-grey {
     color: #000 !important;
     background-color: #f1f1f1 !important
