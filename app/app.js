@@ -92,7 +92,7 @@ class App extends React.Component {
 
           delete itemOrdered.percentage;
           console.log('insertionSort', itemOrdered);
-          return { ...state, lists }
+          return { ...newState, lists }
         });
       });
 
@@ -108,7 +108,23 @@ class App extends React.Component {
 
           delete itemOrdered.percentage;
           console.log('quickSort', itemOrdered);
-          return { ...state, lists }
+          return { ...newState, lists }
+        });
+      });
+
+      //countingSortTime
+      await algoritimos.countingSort(item.list, percentage).then(itemOrdered => {
+        this.setState((state) => {
+          let newState = { ...state };
+          let lists = [...state.lists], item = lists[index];
+          delete newState.lists;
+
+          item.countingSortTime = itemOrdered.endTime;
+          newState.ordenandoListas += itemOrdered.percentage;
+
+          delete itemOrdered.percentage;
+          console.log('countingSort', itemOrdered);
+          return { ...newState, lists }
         });
       });
     };
@@ -164,6 +180,7 @@ class App extends React.Component {
                     <th>Bubble Sort</th>
                     <th>Insertion Sort</th>
                     <th>Quick Sort</th>
+                    <th>Counting Sort</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -174,6 +191,7 @@ class App extends React.Component {
                         <td>{ item.bubbleSortTime }ms</td>
                         <td>{ item.insertionSortTime }ms</td>
                         <td>{ item.quickSortTime }ms</td>
+                        <td>{ item.countingSortTime }ms</td>
                       </tr>
                     )
                   }) }
